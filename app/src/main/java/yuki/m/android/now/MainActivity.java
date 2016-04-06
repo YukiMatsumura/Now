@@ -20,7 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import yuki.m.android.now.time.Time;
+import yuki.m.android.now.time.Jsr310Time;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +29,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    Toast.makeText(this, "Now=" + Time.now(), Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, "Now=" + Jsr310Time.now(), Toast.LENGTH_SHORT).show();
   }
 }
