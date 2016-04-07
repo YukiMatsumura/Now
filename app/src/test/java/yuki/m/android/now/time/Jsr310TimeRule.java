@@ -83,7 +83,7 @@ public class Jsr310TimeRule implements TestRule {
         };
     }
 
-    private void lockCurrentTime(@NonNull LegacyTime.CurrentTimeProvider provider) {
+    private void lockCurrentTime(@NonNull LegacyTime.NowProvider provider) {
         if (Jsr310TimeRule.locked) {
             throw new IllegalMonitorStateException("Clock is locked.");
         }

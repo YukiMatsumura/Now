@@ -81,19 +81,19 @@ public class LegacyTimeRule implements TestRule {
         };
     }
 
-    private void lockCurrentTime(@NonNull LegacyTime.CurrentTimeProvider provider) {
+    private void lockCurrentTime(@NonNull LegacyTime.NowProvider provider) {
         if (LegacyTimeRule.locked) {
             throw new IllegalMonitorStateException("CurrentTimeProvider is locked.");
         }
         LegacyTimeRule.locked = true;
-        LegacyTime.setCurrentTimeProvider(provider);
+        LegacyTime.fixedCurrentTime(provider);
     }
 
     private void unlockCurrentTime() {
         if (!LegacyTimeRule.locked) {
             throw new IllegalMonitorStateException("CurrentTimeProvider is unlocked.");
         }
-        LegacyTime.setCurrentTimeProvider(LegacyTime.systemCurrentTimeProvider);
+        LegacyTime.tickCurrentTime();
         LegacyTimeRule.locked = false;
     }
 

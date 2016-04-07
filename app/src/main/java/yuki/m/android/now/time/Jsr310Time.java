@@ -46,7 +46,7 @@ public abstract class Jsr310Time {
     }
 
     /**
-     * ISO8601(UTC)形式の文字列をepoch値に変換
+     * ISO8601(UTC)形式の文字列をepoch timeに変換
      */
     public static long parseIso8601Z(String iso8601Z) {
         return ZonedDateTime

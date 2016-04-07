@@ -29,27 +29,31 @@ import java.util.TimeZone;
  */
 public class LegacyTime {
 
-    interface CurrentTimeProvider {
+    interface NowProvider {
 
         long now();
     }
 
-    @VisibleForTesting
-    protected static CurrentTimeProvider systemCurrentTimeProvider = System::currentTimeMillis;
+    private static NowProvider systemCurrentTimeProvider = System::currentTimeMillis;
 
-    private static CurrentTimeProvider currentTimeProvider = systemCurrentTimeProvider;
+    private static NowProvider nowProvider = systemCurrentTimeProvider;
 
     @VisibleForTesting
-    protected static void setCurrentTimeProvider(CurrentTimeProvider provider) {
-        currentTimeProvider = provider;
+    protected static void fixedCurrentTime(NowProvider provider) {
+        nowProvider = provider;
+    }
+
+    @VisibleForTesting
+    protected static void tickCurrentTime() {
+        nowProvider = systemCurrentTimeProvider;
     }
 
     public static long now() {
-        return currentTimeProvider.now();
+        return nowProvider.now();
     }
 
     /**
-     * ISO8601(UTC)形式の文字列をepoch値に変換
+     * ISO8601(UTC)形式の文字列をepoch timeに変換
      */
     @SuppressLint("SimpleDateFormat")
     public static long parseIso8601Z(String iso8601z) {
