@@ -165,6 +165,7 @@ public class LegacyTimeTest {
 
 ## 蛇足
 
-テストクラスに含まれる全てのテストで現在時刻を固定したいのであれば, NowアノテーションでType★をサポートし, テストランナーを@ClassRuleで宣言すれば実現できま 
+テストクラスに含まれる全てのテストで現在時刻を固定したいのであれば, `Now`アノテーションで[`ElementType.Type`](https://docs.oracle.com/javase/jp/8/docs/api/java/lang/annotation/ElementType.html#TYPE)をサポートし, テストランナーを[`@ClassRule`](https://github.com/junit-team/junit4/wiki/Rules#classrule)で宣言すれば実現できま 
 す.  
-ただ, テストケースを断片的に見た場合に固定されていることがパッと見でわからないため実装しませんでした.  
+ただ, テストケースで現在時刻が固定されていることに気付き辛くなるため実装しませんでした.  
+
