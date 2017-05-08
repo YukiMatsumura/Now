@@ -163,7 +163,7 @@ public class LegacyTimeTest {
  - [LegacyTimeRule.java](https://github.com/YukiMatsumura/Now/blob/master/app/src/test/java/yuki/m/android/now/time/LegacyTimeRule.java)
 
 ## Kotlin
-Kotlinでは[アノテーションにコンストラクタ](https://kotlinlang.org/docs/reference/annotations.html#constructors)を持たせられるため、`Now`アノテーション以下のように書くことができ、
+Kotlinでは[アノテーションにコンストラクタ](https://kotlinlang.org/docs/reference/annotations.html#constructors)を持たせられるため、`Now`アノテーションを以下のように書くことができ、
 ISO8601方式の書き方でなくても、読みやすさを保ったままアノテーションの宣言をできます。
 ```kotlin
 class KotlinJsr310TimeTest {
