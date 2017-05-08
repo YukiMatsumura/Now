@@ -38,9 +38,9 @@ public class Jsr310TimeTest {
     }
 
     @Test
-    @Now("2000-01-01T00:00:00Z")
+    @Now("2017-01-01T00:00:00Z")
     public void Now指定あり() throws Exception {
         assertThat(Jsr310Time.now()).isEqualTo(
-                Jsr310Time.parseIso8601Z("2000-01-01T00:00:00Z"));
+                Jsr310Time.parseIso8601Z("2017-01-01T00:00:00Z"));
     }
 }
