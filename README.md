@@ -162,6 +162,25 @@ public class LegacyTimeTest {
  - [Jsr310TimeRule.java](https://github.com/YukiMatsumura/Now/blob/master/app/src/test/java/yuki/m/android/now/time/Jsr310TimeRule.java)
  - [LegacyTimeRule.java](https://github.com/YukiMatsumura/Now/blob/master/app/src/test/java/yuki/m/android/now/time/LegacyTimeRule.java)
 
+## Kotlin
+Kotlinでは[アノテーションにコンストラクタ](https://kotlinlang.org/docs/reference/annotations.html#constructors)を持たせられるため、`Now`アノテーションを以下のように書くことができ、
+ISO8601方式の書き方でなくても、読みやすさを保ったままアノテーションの宣言をできます。
+```kotlin
+class KotlinJsr310TimeTest {
+
+    @Rule @JvmField val kotlinJsr310TimeRule = KotlinJsr310TimeRule()
+
+    @Test
+    @Now(2017, 1, 1, 0, 0, 0)
+    fun テスト() {
+        assertThat(Jsr310Time.now()).isEqualTo(
+                Jsr310Time.parseIso8601Z("2017-01-01T00:00:00Z"))
+    }
+
+}
+```
+- [KotlinJsr310TimeTest.kt](https://github.com/YukiMatsumura/Now/blob/master/app/src/test/java/yuki/m/android/now/time/KotlinJsr310TimeTest.kt)
+
 
 ## 蛇足
 

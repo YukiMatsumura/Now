@@ -38,9 +38,9 @@ public class LegacyTimeTest {
     }
 
     @Test
-    @Now("2000-01-01T00:00:00Z")
+    @Now("2017-01-01T00:00:00Z")
     public void Now指定あり() throws Exception {
         assertThat(LegacyTime.now()).isEqualTo(
-                LegacyTime.parseIso8601Z("2000-01-01T00:00:00Z"));
+                LegacyTime.parseIso8601Z("2017-01-01T00:00:00Z"));
     }
 }
